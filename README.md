@@ -5,7 +5,7 @@ Bicep template that deploys an Azure Storage account to store Terraform state fi
 ## Prerequisites
 
 - Sign up for an [Azure account](https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account).
-- Install [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).
+- Install [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) version 2.20 or later.
 
 ## Usage
 
