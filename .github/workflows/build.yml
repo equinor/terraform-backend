@@ -6,8 +6,8 @@ on:
       - main
 
 jobs:
-  build:
-    name: Build
+  bicep-build:
+    name: Bicep Build
     runs-on: ubuntu-latest
     env:
       BICEP_FILE_PATH: main.bicep
