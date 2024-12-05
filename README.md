@@ -2,7 +2,7 @@
 
 [![SCM Compliance](https://scm-compliance-api.radix.equinor.com/repos/equinor/terraform-backend/badge)](https://scm-compliance-api.radix.equinor.com/repos/equinor/terraform-backend/badge)
 
-Bicep template that deploys an Azure Storage account to store Terraform state files.
+Bicep template that creates an Azure Storage account to store Terraform state files.
 
 [![Deploy to Azure](https://docs.microsoft.com/en-us/azure/templates/media/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fequinor%2Fterraform-backend%2Fmain%2Fazuredeploy.json)
 
