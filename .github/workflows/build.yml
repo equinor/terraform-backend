@@ -4,38 +4,38 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      - main.bicep
 
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
     env:
-      BICEP_TEMPLATE_FILE: main.bicep
-      ARM_TEMPLATE_FILE: azuredeploy.json
+      BICEP_FILE_PATH: main.bicep
+      OUTPUT_FILE_PATH: azuredeploy.json
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.head_ref }}
 
       - name: Build Bicep file
         id: build
         shell: bash {0} # Required to check exit code
         run: |
-          az bicep build --file "$BICEP_TEMPLATE_FILE" --outfile "$ARM_TEMPLATE_FILE"
+          az bicep build --file "$BICEP_FILE_PATH" --outfile "$OUTPUT_FILE_PATH"
           exit_code="$?"
           if [[ "$exit_code" != 0 ]]; then
             exit "$exit_code"
           fi
-          git diff --exit-code "$ARM_TEMPLATE_FILE"
+          git diff --exit-code "$OUTPUT_FILE_PATH"
           exit_code="$?"
           echo "exit-code=$exit_code" >> "$GITHUB_OUTPUT"
 
-      - name: Commit & Push
+      - name: Push commit
         if: steps.build.outputs.exit-code != 0
         run: |
-          git config set --global user.name 'github-actions[bot]'
-          git config set --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add "$ARM_TEMPLATE_FILE"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$OUTPUT_FILE_PATH"
           git commit -m "Build Bicep file"
           git push
