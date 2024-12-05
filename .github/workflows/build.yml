@@ -18,7 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ github.head_ref }}
 
       - name: Build Bicep file
         id: build
@@ -33,11 +33,11 @@ jobs:
           exit_code="$?"
           echo "exit-code=$exit_code" >> "$GITHUB_OUTPUT"
 
-      - name: Commit & Push
+      - name: Push commit
         if: steps.build.outputs.exit-code != 0
         run: |
-          git config set --global user.name 'github-actions[bot]'
-          git config set --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add "$ARM_TEMPLATE_FILE"
           git commit -m "Build Bicep file"
           git push
