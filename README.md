@@ -74,6 +74,10 @@ Bicep template that creates an Azure Storage account to store Terraform state fi
 az bicep build --file main.bicep --outfile azuredeploy.json
 ```
 
+## Contributing
+
+See [contributing guidelines](CONTRIBUTING.md).
+
 ## License
 
 This project is licensed under the terms of the [MIT license](LICENSE).
