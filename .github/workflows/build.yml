@@ -10,8 +10,8 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     env:
-      BICEP_TEMPLATE_FILE: main.bicep
-      ARM_TEMPLATE_FILE: azuredeploy.json
+      BICEP_FILE_PATH: main.bicep
+      OUTPUT_FILE_PATH: azuredeploy.json
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
@@ -22,12 +22,12 @@ jobs:
         id: build
         shell: bash {0} # Required to check exit code
         run: |
-          az bicep build --file "$BICEP_TEMPLATE_FILE" --outfile "$ARM_TEMPLATE_FILE"
+          az bicep build --file "$BICEP_FILE_PATH" --outfile "$OUTPUT_FILE_PATH"
           exit_code="$?"
           if [[ "$exit_code" != 0 ]]; then
             exit "$exit_code"
           fi
-          git diff --exit-code "$ARM_TEMPLATE_FILE"
+          git diff --exit-code "$OUTPUT_FILE_PATH"
           exit_code="$?"
           echo "exit-code=$exit_code" >> "$GITHUB_OUTPUT"
 
@@ -36,6 +36,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "$ARM_TEMPLATE_FILE"
+          git add "$OUTPUT_FILE_PATH"
           git commit -m "Build Bicep file"
           git push
