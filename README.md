@@ -68,12 +68,6 @@ Bicep template that creates an Azure Storage account to store Terraform state fi
    terraform init
    ```
 
-## Build
-
-```console
-az bicep build --file main.bicep --outfile azuredeploy.json
-```
-
 ## Contributing
 
 See [contributing guidelines](CONTRIBUTING.md).
