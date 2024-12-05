@@ -68,6 +68,12 @@ Bicep template that creates an Azure Storage account to store Terraform state fi
    terraform init
    ```
 
+## References
+
+- [Store Terraform state in Azure Storage](https://learn.microsoft.com/en-us/azure/developer/terraform/store-state-in-azure-storage?tabs=azure-cli)
+- [Security recommendations for Azure Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/security-recommendations)
+- [Terraform backend configuration for Azure Storage](https://www.terraform.io/language/settings/backends/azurerm)
+
 ## Contributing
 
 See [contributing guidelines](CONTRIBUTING.md).
