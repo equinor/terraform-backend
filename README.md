@@ -2,9 +2,15 @@
 
 [![SCM Compliance](https://scm-compliance-api.radix.equinor.com/repos/equinor/terraform-backend/badge)](https://scm-compliance-api.radix.equinor.com/repos/equinor/terraform-backend/badge)
 
-Bicep template that creates an Azure Storage account to store Terraform state files.
-
 [![Deploy to Azure](https://docs.microsoft.com/en-us/azure/templates/media/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fequinor%2Fterraform-backend%2Fmain%2Fazuredeploy.json)
+
+Bicep template that creates an Azure Storage account to store Terraform state files:
+
+- Creates a storage account with the specified name.
+- Configures the storage account according to security recommendations.
+- Creates a storage container `tfstate`.
+- Grants access to the storage account for specified user, group and service principals.
+- Creates a read-only lock to prevent changes to the storage account.
 
 ## Prerequisites
 
@@ -34,6 +40,8 @@ Bicep template that creates an Azure Storage account to store Terraform state fi
    az group create --name tfstate
    ```
 
+   Requires Azure role `Contributor` at subscription.
+
 1. Create a deployment at resource group from the template file:
 
    ```console
@@ -45,6 +53,8 @@ Bicep template that creates an Azure Storage account to store Terraform state fi
    ```console
    az deployment group create --name terraform-backend --resource-group tfstate --template-uri https://raw.githubusercontent.com/equinor/terraform-backend/refs/heads/main/azuredeploy.json --parameters storageAccountName=<STORAGE_ACCOUNT_NAME>
    ```
+
+   Requires Azure role `Owner` at resource group.
 
 ### Configure Terraform backend
 
