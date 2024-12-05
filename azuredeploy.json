@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.31.92.45157",
-      "templateHash": "17216029301364810951"
+      "templateHash": "5751906987518486939"
     }
   },
   "parameters": {
@@ -28,6 +28,10 @@
       "metadata": {
         "description": "An array of object IDs of user, group or service principals that should have access to the Terraform backend."
       }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
     }
   },
   "resources": [
@@ -99,7 +103,7 @@
       "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2023-05-01",
       "name": "[parameters('storageAccountName')]",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "sku": {
         "name": "Standard_GRS"
       },
