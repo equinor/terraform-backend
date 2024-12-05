@@ -1,4 +1,4 @@
-# Terraform Backend
+# 💪 Terraform Backend
 
 [![SCM Compliance](https://scm-compliance-api.radix.equinor.com/repos/equinor/terraform-backend/badge)](https://scm-compliance-api.radix.equinor.com/repos/equinor/terraform-backend/badge)
 
