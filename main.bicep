@@ -1,5 +1,5 @@
 @description('The name of the Storage account to create.')
-param storageAccountName string = 'tfstate${uniqueString(resourceGroup().id)}'
+param storageAccountName string
 
 @description('An array of IP addresses or IP ranges that should be allowed to bypass the firewall of the Terraform backend. If empty, the firewall will be disabled.')
 param ipRules array = []

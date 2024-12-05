@@ -5,13 +5,12 @@
     "_generator": {
       "name": "bicep",
       "version": "0.31.92.45157",
-      "templateHash": "8031069928804997989"
+      "templateHash": "17216029301364810951"
     }
   },
   "parameters": {
     "storageAccountName": {
       "type": "string",
-      "defaultValue": "[format('tfstate{0}', uniqueString(resourceGroup().id))]",
       "metadata": {
         "description": "The name of the Storage account to create."
       }
