@@ -7,11 +7,9 @@ param ipRules array = []
 @description('An array of object IDs of user, group or service principals that should have access to the Terraform backend.')
 param principalIds array = []
 
-var location = resourceGroup().location
-
 resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   name: storageAccountName
-  location: location
+  location: resourceGroup().location
   sku: {
     name: 'Standard_GRS'
   }
