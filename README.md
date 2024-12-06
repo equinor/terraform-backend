@@ -1,6 +1,6 @@
 # 💪 Terraform Backend
 
-[![SCM Compliance](https://scm-compliance-api.radix.equinor.com/repos/equinor/terraform-backend/badge)](https://scm-compliance-api.radix.equinor.com/repos/equinor/terraform-backend/badge)
+[![SCM Compliance](https://scm-compliance-api.radix.equinor.com/repos/equinor/terraform-backend/badge)](https://developer.equinor.com/governance/scm-policy/)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
 
 [![Deploy to Azure](https://docs.microsoft.com/en-us/azure/templates/media/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fequinor%2Fterraform-backend%2Fmain%2Fazuredeploy.json)
