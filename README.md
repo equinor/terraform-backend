@@ -1,11 +1,11 @@
-# Terraform Backend
+# Azure Terraform Backend Template
 
-[![SCM Compliance](https://scm-compliance-api.radix.equinor.com/repos/equinor/terraform-backend/badge)](https://developer.equinor.com/governance/scm-policy/)
+[![SCM Compliance](https://scm-compliance-api.radix.equinor.com/repos/equinor/azure-terraform-backend-template/badge)](https://developer.equinor.com/governance/scm-policy/)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
 
-[![Deploy to Azure](https://docs.microsoft.com/en-us/azure/templates/media/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fequinor%2Fterraform-backend%2Fmain%2Fazuredeploy.json)
+[![Deploy to Azure](https://docs.microsoft.com/en-us/azure/templates/media/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fequinor%2Fazure-terraform-backend-template%2Fmain%2Fazuredeploy.json)
 
-Bicep template that creates an Azure Storage account to store Terraform state files:
+Azure Resource Manager (ARM) template that creates an Azure Storage account to store Terraform state files:
 
 - Creates a storage account with the specified name.
 - Configures the storage account according to [security recommendations](https://learn.microsoft.com/en-us/azure/storage/blobs/security-recommendations).
@@ -46,13 +46,13 @@ Bicep template that creates an Azure Storage account to store Terraform state fi
 1. Create a deployment at resource group from the template file:
 
    ```console
-   az deployment group create --name terraform-backend --resource-group tfstate --template-file main.bicep --parameters storageAccountName=<STORAGE_ACCOUNT_NAME>
+   az deployment group create --name terraform-backend --resource-group tfstate --template-file azuredeploy.json --parameters storageAccountName=<STORAGE_ACCOUNT_NAME>
    ```
 
    Alternatively, create a deployment at resource group from the template URI:
 
    ```console
-   az deployment group create --name terraform-backend --resource-group tfstate --template-uri https://raw.githubusercontent.com/equinor/terraform-backend/refs/heads/main/azuredeploy.json --parameters storageAccountName=<STORAGE_ACCOUNT_NAME>
+   az deployment group create --name terraform-backend --resource-group tfstate --template-uri https://raw.githubusercontent.com/equinor/azure-terraform-backend-template/refs/heads/main/azuredeploy.json --parameters storageAccountName=<STORAGE_ACCOUNT_NAME>
    ```
 
    Requires Azure role `Owner` at resource group.
