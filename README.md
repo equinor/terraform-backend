@@ -80,6 +80,14 @@ Azure Resource Manager (ARM) template that creates an Azure Storage account to s
    terraform init
    ```
 
+## Parameters
+
+| Name | Description | Type | Default |
+| - | - | - | - |
+| `storageAccountName` | The name of the storage account to create. | `string` | |
+| `ipRules` | An array of IP addresses or ranges that should be granted access to the storage account. If empty, all IP addresses and ranges will be granted access to the storage account. | `array` | `[]` |
+| `principalIds` | An array of object IDs for user, group or service principals that should be granted access to the storage account. | `array` | `[]` |
+
 ## References
 
 - [Store Terraform state in Azure Storage](https://learn.microsoft.com/en-us/azure/developer/terraform/store-state-in-azure-storage?tabs=azure-cli)
