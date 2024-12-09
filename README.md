@@ -39,7 +39,7 @@ Azure Resource Manager (ARM) template that creates an Azure Storage account to s
 1. Create resource group:
 
    ```console
-   az group create --name tfstate
+   az group create --name <RESOURCE_GROUP_NAME> --location <LOCATION>
    ```
 
    Requires Azure role `Contributor` at subscription.
@@ -47,13 +47,13 @@ Azure Resource Manager (ARM) template that creates an Azure Storage account to s
 1. Create a deployment at resource group from the template file:
 
    ```console
-   az deployment group create --name terraform-backend --resource-group tfstate --template-file azuredeploy.json --parameters storageAccountName=<STORAGE_ACCOUNT_NAME>
+   az deployment group create --name terraform-backend --resource-group <RESOURCE_GROUP_NAME> --template-file azuredeploy.json --parameters storageAccountName=<STORAGE_ACCOUNT_NAME>
    ```
 
    Alternatively, create a deployment at resource group from the template URI:
 
    ```console
-   az deployment group create --name terraform-backend --resource-group tfstate --template-uri https://raw.githubusercontent.com/equinor/azure-terraform-backend-template/refs/heads/main/azuredeploy.json --parameters storageAccountName=<STORAGE_ACCOUNT_NAME>
+   az deployment group create --name terraform-backend --resource-group <RESOURCE_GROUP_NAME> --template-uri https://raw.githubusercontent.com/equinor/azure-terraform-backend-template/refs/heads/main/azuredeploy.json --parameters storageAccountName=<STORAGE_ACCOUNT_NAME>
    ```
 
    Requires Azure role `Owner` at resource group.
@@ -65,7 +65,7 @@ Azure Resource Manager (ARM) template that creates an Azure Storage account to s
    ```terraform
    terraform {
      backend "azurerm" {
-       resource_group_name  = "tfstate"
+       resource_group_name  = "<RESOURCE_GROUP_NAME>"
        storage_account_name = "<STORAGE_ACCOUNT_NAME>"
        container_name       = "tfstate"
        key                  = "terraform.tfstate"
