@@ -39,7 +39,7 @@ Azure Resource Manager (ARM) template that creates an Azure Storage account to s
 1. Create resource group:
 
    ```console
-   az group create --name <RESOURCE_GROUP_NAME>
+   az group create --name <RESOURCE_GROUP_NAME> --location <LOCATION>
    ```
 
    Requires Azure role `Contributor` at subscription.
