@@ -34,8 +34,10 @@ jobs:
           if [[ "$exit_code" != 0 ]]; then
             exit "$exit_code"
           fi
+
           git diff --exit-code "$OUTPUT_FILE_PATH"
           exit_code="$?"
+
           echo "exit-code=$exit_code" >> "$GITHUB_OUTPUT"
 
       - name: Push commit
